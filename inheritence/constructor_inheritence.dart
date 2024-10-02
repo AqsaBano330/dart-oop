@@ -1,14 +1,16 @@
 main(){
 Teacher teacher = Teacher("Aqsa", 8,23456);
-teacher.displaypersoninfo();
-teacher.displayteacherinfo();
+teacher.displayinfo();
+
 }
 
 class Person{
    String? name;
    int? age;
    Person(this.name, this.age);
-   displaypersoninfo(){
+   Person.unnecessarydetail(this.name, this.age);
+
+   displayinfo(){
     print("name: $name");
     print("age: $age");
    }
@@ -17,12 +19,18 @@ class Person{
 
 class Teacher extends Person{
   int? rollum;
-  @override
-  displayteacherinfo() {
+  
+  displayinfo() {
+    super.displayinfo();
     print("rollnum: $rollum");
+    print(super.age);
   }
 
   Teacher(String name, int age,this.rollum): super(name, age);
+  Teacher.unnecessarydetail(String name, int age,this.rollum): super.unnecessarydetail(name, age);
+
+  
+
 
 
 }
